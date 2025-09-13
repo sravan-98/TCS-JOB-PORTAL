@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif; 
+      line-height: 1.6;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* New background image */
+      background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") 
+        no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    #appliaction {
+      background-color: rgba(255, 255, 255, 0.95); /* transparent box for readability */
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333333;
+      margin-bottom: 20px;
+      text-transform: capitalize;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444444;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    ::placeholder {
+      color: #999999;
+    }
+
+    /* Confirmation message */
+    .confirmation-message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="appliaction">
+    <h2>Job Application for Frontend Engineer</h2>
+    <form id="application-form" onsubmit="return submitApplication(event)">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="father-name">Father's Name:</label>
+      <input type="text" id="father-name" placeholder="Enter your father's name" required>
+
+      <label for="phone-number">Phone Number:</label>
+      <input type="number" id="phone-number" placeholder="Enter your phone number" required>
+
+      <label for="resume">Resume:</label>
+      <input type="file" id="resume" required>
+
+      <input type="submit" value="Submit Application">
+    </form>
+
+    <div id="confirmation-message" class="confirmation-message" style="display: none;">
+      <h3>Your application was successfully completed. A confirmation message will be sent to your mobile!</h3>
+    </div>
+  </div>
+
+  <script>
+    // Function to handle form submission
+    function submitApplication(event) {
+      event.preventDefault();  // Prevents the page from reloading on form submission
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const fatherName = document.getElementById('father-name').value;
+      const phoneNumber = document.getElementById('phone-number').value;
+
+      // Store form data in localStorage (optional for future use)
+      const applicationData = {
+        name,
+        email,
+        fatherName,
+        phoneNumber
+      };
+
+      localStorage.setItem('applicationData', JSON.stringify(applicationData));
+
+      // Simulate sending confirmation message to mobile
+      alert(`Confirmation message sent to ${phoneNumber}!`);
+
+      // Display confirmation message on the page
+      document.getElementById('confirmation-message').style.display = 'block';
+
+      // Clear form after submission
+      document.getElementById('application-form').reset();
+    }
+  </script>
+</body>
+</html>

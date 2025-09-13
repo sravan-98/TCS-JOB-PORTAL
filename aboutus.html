@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCS Job Portal</title>
+  <style>
+font-family: Arial, sans-serif; background-color: #f4f4f9; line-height: 1.6;
+      background-image: url("https://c.ndtvimg.com/fuhbbqu9u2_tcs---company-website_625x300.jpg?downsize=545:307");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background-color: #333;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: #575757;
+    }
+    #about {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    p, ul, ol {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #toggle-about {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    #toggle-about:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#" id="about-btn">About Us</a></li>
+    </ul>
+  </nav>
+
+  <button id="toggle-about">Show About Us</button>
+
+  <div id="about">
+    <h2>About Us</h2>
+    <p>Welcome to our Job Portal! We connect individuals with top companies across industries.</p>
+
+    <p><strong>TCS Job Portal – Connecting You to Your Future</strong></p>
+
+    <p>TCS Job Portal is designed to bridge the gap between skilled professionals and the latest job opportunities in the IT industry. It offers:</p>
+    <ul>
+      <li>✔ Real-time job listings in software development, data analytics, cloud computing, and more.</li>
+      <li>✔ Seamless application tracking to monitor your progress.</li>
+      <li>✔ Internship & Fresher Programs for students and graduates.</li>
+      <li>✔ Job alerts & recommendations based on your skills and experience.</li>
+    </ul>
+
+    <p><strong>How to Apply?</strong></p>
+    <ol>
+      <li>1️⃣ Sign Up & Create a Profile – Register as a job seeker.</li>
+      <li>2️⃣ Explore Openings – Search and filter jobs based on your skill set.</li>
+      <li>3️⃣ Submit Applications – Apply for roles that match your expertise.</li>
+      <li>4️⃣ Track Progress – Receive updates on your application status.</li>
+      <li>5️⃣ Get Hired! – Start your career with one of the world’s top IT companies.</li>
+    </ol>
+
+    <p>
+      🔹 <strong>Website:</strong> <a href="https://www.tcs.com" target="_blank">www.tcs.com</a><br>
+      🔹 <strong>Contact Support:</strong> hr.support@tcs.com
+    </p>
+
+    <p>🚀 Start your journey with TCS today and build a rewarding career in technology and innovation!</p>
+  </div>
+
+  <script>
+    document.getElementById('toggle-about').addEventListener('click', function() {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection.style.display === 'none' || aboutSection.style.display === '') {
+        aboutSection.style.display = 'block';
+        this.textContent = 'Hide About Us';
+      } else {
+        aboutSection.style.display = 'none';
+        this.textContent = 'Show About Us';
+      }
+    });
+  </script>
+
+</body>
+</html>

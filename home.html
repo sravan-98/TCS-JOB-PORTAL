@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCS Job Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Home Content Section */
+        #home-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: #fff;
+            margin: 15px auto;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        #home-content.open {
+            max-height: 2000px; /* Adjust to fit content */
+            padding: 20px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        ul {
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="javascript:void(0);" onclick="toggleHomeContent()">Home</a></li>
+        </ul>
+    </nav>
+
+    <div id="home-content">
+        <h2>Introduction</h2>
+        <p>The <strong>TCS Job Portal</strong> is a dedicated online platform developed by <strong>Tata Consultancy Services (TCS)</strong> to connect job seekers with career opportunities in the IT, consulting, and business solutions industry.</p>
+        
+        <h2>Company Details</h2>
+        <p><strong>Company Name:</strong> Tata Consultancy Services (TCS)</p>
+        <p><strong>Founded:</strong> 1968</p>
+        <p><strong>Headquarters:</strong> Mumbai, India</p>
+        <p><strong>Industry:</strong> Information Technology & Consulting</p>
+        <p><strong>Services:</strong> IT Services, Business Solutions, Digital Transformation, Cloud Computing, Cybersecurity</p>
+        <p><strong>Website:</strong> <a href="https://www.tcs.com" target="_blank">www.tcs.com</a></p>
+        <p><strong>Customer Support:</strong> hr.support@tcs.com</p>
+        
+        <h2>Features of the TCS Job Portal</h2>
+        <h3>For Job Seekers</h3>
+        <ul>
+            <li>✅ Explore Exciting Career Opportunities</li>
+            <li>✅ Easy Application Process</li>
+            <li>✅ Resume Upload & Profile Management</li>
+            <li>✅ Job Alerts & Notifications</li>
+            <li>✅ TCS Campus Hiring & Freshers Program</li>
+        </ul>
+        
+        <h3>For Recruiters & Employers</h3>
+        <ul>
+            <li>🔹 Post Job Openings</li>
+            <li>🔹 Candidate Shortlisting & Selection</li>
+            <li>🔹 Application Tracking System</li>
+            <li>🔹 Skill Assessment & Interviews</li>
+        </ul>
+        
+        <h2>How It Works?</h2>
+        <ol>
+            <li>1️⃣ Register & Create an Account</li>
+            <li>2️⃣ Browse & Apply for Jobs</li>
+            <li>3️⃣ Upload Resume & Documents</li>
+            <li>4️⃣ Track Application Status</li>
+            <li>5️⃣ Get Hired at TCS!</li>
+        </ol>
+        
+        <h2>Why Join TCS?</h2>
+        <ul>
+            <li>✔ Global Career Growth</li>
+            <li>✔ Employee Benefits & Perks</li>
+            <li>✔ Innovation & Learning</li>
+            <li>✔ Diverse & Inclusive Workplace</li>
+        </ul>
+        
+        <h2>Start Your Career with TCS Today!</h2>
+        <p>Join TCS through our TCS Job Portal and take the next step towards a rewarding career in technology and innovation! 🚀</p>
+    </div>
+
+    <script>
+        function toggleHomeContent() {
+            var content = document.getElementById("home-content");
+
+            if (content.classList.contains("open")) {
+                content.style.maxHeight = "0";
+                content.style.padding = "0 20px";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.padding = "20px";
+            }
+
+            content.classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>
