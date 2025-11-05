@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Portal</title>
+  <title>Job Application - Software Developer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,14 +12,15 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+
       /* Background Image */
       background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") 
         no-repeat center center fixed;
       background-size: cover;
     }
 
-    #appliaction {
-      background-color: rgba(255, 255, 255, 0.95); /* Slight transparency for readability */
+    #application {
+      background-color: rgba(255, 255, 255, 0.95);
       padding: 25px 30px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -81,17 +82,31 @@
       color: #999999;
     }
 
-    /* Confirmation message */
     .confirmation-message {
       margin-top: 20px;
       color: green;
       font-weight: bold;
       text-align: center;
     }
+
+    .view-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .view-link a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .view-link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div id="appliaction">
+  <div id="application">
     <h2>Job Application for Software Developer</h2>
     <form id="application-form" onsubmit="return submitApplication(event)">
       <label for="name">Full Name:</label>
@@ -113,40 +128,41 @@
     </form>
 
     <div id="confirmation-message" class="confirmation-message" style="display: none;">
-      <h3>Your application was successfully completed. A confirmation message will be sent to your mobile!</h3>
+      <h3>Your application was successfully submitted! 📩</h3>
+      <p>A confirmation message has been sent to your mobile.</p>
+    </div>
+
+    <!-- ✅ Added your local link -->
+    <div class="view-link">
+      <a href="file:///C:/Users/srava/OneDrive/Desktop/sravan/Job_Profile_Prohect/viewapplicationsdataanalyist.html">
+        📋 View All Applications
+      </a>
     </div>
   </div>
 
   <script>
-    // Function to handle form submission
     function submitApplication(event) {
-      event.preventDefault();  // Prevents the page from reloading on form submission
+      event.preventDefault();
 
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const fatherName = document.getElementById('father-name').value;
-      const phoneNumber = document.getElementById('phone-number').value;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const fatherName = document.getElementById('father-name').value.trim();
+      const phoneNumber = document.getElementById('phone-number').value.trim();
+      const appliedFor = "Software Developer";
+      const date = new Date().toLocaleString();
 
-      // Store form data in localStorage (optional for future use)
-      const applicationData = {
-        name,
-        email,
-        fatherName,
-        phoneNumber
-      };
+      // ✅ Save to the same localStorage key "applications"
+      const newApplication = { name, email, fatherName, phoneNumber, appliedFor, date };
 
-      localStorage.setItem('applicationData', JSON.stringify(applicationData));
+      let applications = JSON.parse(localStorage.getItem('applications')) || [];
+      applications.push(newApplication);
+      localStorage.setItem('applications', JSON.stringify(applications));
 
-      // Simulate sending confirmation message to mobile
-      alert(`Confirmation message sent to ${phoneNumber}!`);
-
-      // Display confirmation message on the page
+      alert(`✅ Application for ${appliedFor} saved successfully!`);
       document.getElementById('confirmation-message').style.display = 'block';
-
-      // Clear form after submission
       document.getElementById('application-form').reset();
     }
   </script>
 </body>
 </html>
+
