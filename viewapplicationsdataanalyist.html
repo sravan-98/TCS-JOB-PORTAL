@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Submitted Applications</title>
+<style>
+  body { font-family: Arial; background: #f4f4f9; padding: 20px; }
+  h2 { text-align: center; color: #007bff; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+  th { background-color: #007bff; color: white; }
+  td { background-color: #fff; }
+  .clear-btn {
+    display: block; margin: 20px auto; padding: 10px 20px;
+    background: #dc3545; color: white; border: none;
+    border-radius: 5px; cursor: pointer; font-size: 16px;
+  }
+  .clear-btn:hover { background: #b52a35; }
+</style>
+</head>
+<body>
+  <h2>All Submitted Applications</h2>
+  <table id="applications-table">
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Father's Name</th>
+      <th>Phone Number</th>
+      <th>Applied For</th>
+      <th>Date</th>
+    </tr>
+  </table>
+
+  <button class="clear-btn" onclick="clearApplications()">Clear All Applications</button>
+
+  <script>
+    const table = document.getElementById('applications-table');
+    const applications = JSON.parse(localStorage.getItem('applications')) || [];
+
+    console.log("Loaded applications:", applications); // for debugging
+
+    if (applications.length === 0) {
+      const emptyRow = `<tr><td colspan="6" style="text-align:center;">No applications found.</td></tr>`;
+      table.innerHTML += emptyRow;
+    } else {
+      applications.forEach(app => {
+        const row = `
+          <tr>
+            <td>${app.name}</td>
+            <td>${app.email}</td>
+            <td>${app.fatherName}</td>
+            <td>${app.phoneNumber}</td>
+            <td>${app.appliedFor}</td>
+            <td>${app.date}</td>
+          </tr>`;
+        table.innerHTML += row;
+      });
+    }
+
+    function clearApplications() {
+      if (confirm("Are you sure you want to delete all saved applications?")) {
+        localStorage.removeItem('applications');
+        alert("All applications deleted.");
+        location.reload();
+      }
+    }
+  </script>
+</body>
+</html>
